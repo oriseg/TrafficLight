@@ -2,19 +2,19 @@
 <ContentPage
     x:Class="TrafficLight.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:m="clr-namespace:TrafficLight.Models"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:m="clr-namespace:TrafficLight.Models"
     xmlns:vm="clr-namespace:TrafficLight.ViewModel"
     x:DataType="vm:MainPageVM">
     <Grid RowDefinitions="Auto,Auto,Auto,Auto">
         <Frame>
-            <BoxView BackgroundColor="Red" />
+            <BoxView BackgroundColor="{Binding RedColor}" />
         </Frame>
         <Frame Grid.Row="1">
-            <BoxView BackgroundColor="Yellow" />
+            <BoxView BackgroundColor="{Binding YellowColor}" />
         </Frame>
         <Frame Grid.Row="2">
-            <BoxView BackgroundColor="Green" />
+            <BoxView BackgroundColor="{Binding GreenColor}" />
         </Frame>
         <Button
             Grid.Row="3"
