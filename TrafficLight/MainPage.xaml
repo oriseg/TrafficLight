@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TrafficLight.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:m="clr-namespace:TrafficLight.Models"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:TrafficLight.ViewModel"
+    x:DataType="vm:MainPageVM">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+        <Frame>
+            <BoxView BackgroundColor="Red" />
+        </Frame>
+        <Frame Grid.Row="1">
+            <BoxView BackgroundColor="Yellow" />
+        </Frame>
+        <Frame Grid.Row="2">
+            <BoxView BackgroundColor="Green" />
+        </Frame>
+        <Button
+            Grid.Row="3"
+            Command="{Binding changeLightCommand}"
+            Text="{x:Static m:Strings.changeLightText}" />
+    </Grid>
+
+
+</ContentPage>
