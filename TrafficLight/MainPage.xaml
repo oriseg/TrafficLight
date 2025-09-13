@@ -6,21 +6,41 @@
     xmlns:m="clr-namespace:TrafficLight.Models"
     xmlns:vm="clr-namespace:TrafficLight.ViewModel"
     x:DataType="vm:MainPageVM">
+    <!--"x:Class="TrafficLight.MainPage"" - Creates the other half of MainPage.xaml.cs. Without this, the half the compiler auto-creates and the MainPage.xaml.cs won't match, and it'll create errors.-->
+    <!--"xmlns="http://schemas.microsoft.com/dotnet/2021/maui"" - Lets the xml understand that when I use xml tags like <Grid>, I use MAUI controls. That long URL is just an identifier — it’s not fetched from the internet.-->
+    <!--"xmlns:x="http://schemas.microsoft.com/winf x/2009/xaml"" - Gives the project language namespaces, allowing me to use x: helpers like x:Class, x:Name, x:Static, x:DataType, etc.-->
+    <!--"xmlns:m="clr-namespace:TrafficLight.Models"" and also "xmlns:vm="clr-namespace:TrafficLight.ViewModel"" - link the xml and the other two namespaces for model and viewmodel. xmlns:m="clr-namespace:TrafficLight.Models" means “when I type m:Something in this XAML, look for Something inside the TrafficLight.Models namespace". xmlns:vm="clr-namespace:TrafficLight.ViewModel" does the same but for your ViewModel classes.-->
+    <!--"x:DataType="vm:MainPageVM"" - Personally, didn't understand it perfect. Here's what I know:
+    Only a hint for compile-time. Helps you write correct bindings and gives auto-complete:
+    Think of the binding system as a post office:
+    x:DataType is you telling the post office, “letters in this box will be addressed to a person of type MainPageVM.” That way, they can check you spelled the name correctly.
+    BindingContext is actually putting that person in the house so the letters have someone to reach.
+    {Binding RedColor} is the letter addressed to “RedColor” inside that person.
+    If you never put the person (MainPageVM instance) in the house, your letters bounce.-->
+
     <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+        <!--The page is split into 4 rows. Auto means each row sizes itself to its contents.-->
         <Frame>
+            <!--Each Frame is just a container (a small border/panel).-->
             <BoxView BackgroundColor="{Binding RedColor}" />
+            <!--Each BoxView is the actual colored rectangle.-->
         </Frame>
         <Frame Grid.Row="1">
+            <!--Each Frame is just a container (a small border/panel).-->
             <BoxView BackgroundColor="{Binding YellowColor}" />
+            <!--Each BoxView is the actual colored rectangle.-->
         </Frame>
         <Frame Grid.Row="2">
+            <!--Each Frame is just a container (a small border/panel).-->
             <BoxView BackgroundColor="{Binding GreenColor}" />
+            <!--Each BoxView is the actual colored rectangle.-->
         </Frame>
         <Button
             Grid.Row="3"
             Command="{Binding changeLightCommand}"
             Text="{x:Static m:Strings.changeLightText}" />
+        <!--Grid.row - puts the button in the fourth row.-->
+        <!--Command - connects the button press to a command in the ViewModel-->
+        <!--Text - takes a static string called changeLightText from the Strings class in your Models folder and uses it as the button text-->
     </Grid>
-
-
 </ContentPage>
