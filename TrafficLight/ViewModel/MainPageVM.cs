@@ -20,16 +20,33 @@ namespace TrafficLight.ViewModel
         public Color RedColor => trafficLight.RedColor;
         public Color YellowColor => trafficLight.YellowColor;
         public Color GreenColor => trafficLight.GreenColor;
+        //This part is a little tricky.
+        //We define new objects type Color that get their values from the property trafficLight (defined in line 11). The trick is that the trafficLight object
+        //is type TrafficLight (which needs to be metioned - from the ModelsLogic namespace), and if we look at the class - there is no property for those colors - 
+        //because it's in the base class. ModelsLogic.TrafficLight inherits from Models.TrafficLightModel.cs, where the colors are defined.
+        //Look for the explanation there.
 
+        //Calls the trafficLight.ChangeLight(); method, that knows how to change the lights:
         private void ChangeLight()
         {
             trafficLight.ChangeLight();
         }
+
+        //When the app creates a new MainPageVM, this method runs, as a constructor.
+        //trafficLight.LightChanged is an event coming from TrafficLightModel.
+        //+= OnLightChanged means: “Whenever trafficLight says a light has changed, please call my OnLightChanged method.”
+        //This is like handing someone your phone number. It will not call it immidently, but he will when its necessary.
         public MainPageVM()
         {
             trafficLight.LightChanged += OnLightChanged;
         }
 
+        //Not sure why the sender is a necessary parameter, but whatever.
+        //This method is not called through the MainPageVM method, but by the ChangeLight() method in ModelsLogic.TrafficLight, where it
+        //provides the 2 parameters (in all the invokes who share "this, new LightChangedEventArgs(TrafficLight.{some-color})").
+        //As much as I understood, LightChangedEventArgs is some sort of a bundle contains a lot of information about the event that just
+        //happend. Usually, SomethingEventArgs means “info about a Something event.”
+        //The method calls the ColorChanged method with only the e.Light, which is a type of a thing in the TrafficLightModel TrafficLight enum (that will be explained later).
         private void OnLightChanged(object? sender, LightChangedEventArgs e)
         {
             ColorChanged(e.light);
