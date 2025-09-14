@@ -24,16 +24,19 @@
             <!--Each Frame is just a container (a small border/panel).-->
             <BoxView BackgroundColor="{Binding RedColor}" />
             <!--Each BoxView is the actual colored rectangle.-->
+            <!--“Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.-->
         </Frame>
         <Frame Grid.Row="1">
             <!--Each Frame is just a container (a small border/panel).-->
             <BoxView BackgroundColor="{Binding YellowColor}" />
             <!--Each BoxView is the actual colored rectangle.-->
+            <!--“Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.-->
         </Frame>
         <Frame Grid.Row="2">
             <!--Each Frame is just a container (a small border/panel).-->
             <BoxView BackgroundColor="{Binding GreenColor}" />
             <!--Each BoxView is the actual colored rectangle.-->
+            <!--“Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.-->
         </Frame>
         <Button
             Grid.Row="3"
@@ -41,6 +44,7 @@
             Text="{x:Static m:Strings.changeLightText}" />
         <!--Grid.row - puts the button in the fourth row.-->
         <!--Command - connects the button press to a command in the ViewModel-->
+        <!--“Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.-->
         <!--Text - takes a static string called changeLightText from the Strings class in your Models folder and uses it as the button text-->
     </Grid>
 </ContentPage>

@@ -15,7 +15,7 @@ namespace TrafficLight.ViewModel
         public ICommand changeLightCommand { get => new Command(ChangeLight); }
         //ICommand is an interface for “something you can run from a button.”
         //Command(ChangeLight) builds a command object that calls the ChangeLight method when the button is tapped.
-        //So, the button in XAML runs trafficLight.ChangeLight() through this property.
+        //So, the button in XAML runs trafficLight.ChangeLight() through this property. More correctly, it calls the method in this class, which automatically calls trafficLight.ChangeLight().
 
         public Color RedColor => trafficLight.RedColor;
         public Color YellowColor => trafficLight.YellowColor;
