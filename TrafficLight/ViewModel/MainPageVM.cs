@@ -52,6 +52,11 @@ namespace TrafficLight.ViewModel
             ColorChanged(e.light);
         }
 
+        //As mentioned, this method recieves as a parameter only a one thing from the TrafficLightModel enum, which must be a color.
+        //The method checks what color did he get (which can only be those that are in the enum, red, yellow are green), and calls
+        //the OnPropertyChanged method (that is in the ObservableObjects.cs class) with the parameter nameof({some-color}), 
+        //which basically returns the string "some-color", means for the first scenerio it will called with the string parameter
+        //"RedColor", etc.
         private void ColorChanged(TrafficLightModel.TrafficLight light)
         {
             switch (light)
