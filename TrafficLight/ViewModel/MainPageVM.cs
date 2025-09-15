@@ -26,6 +26,8 @@ namespace TrafficLight.ViewModel
         //because it's in the base class. ModelsLogic.TrafficLight inherits from Models.TrafficLightModel.cs, where the colors are defined.
         //Look for the explanation there.
 
+        public string LightImage => trafficLight.LightImage;
+
         //Calls the trafficLight.ChangeLight(); method, that knows how to change the lights:
         private void ChangeLight()
         {
@@ -70,8 +72,8 @@ namespace TrafficLight.ViewModel
                 case TrafficLightModel.TrafficLight.Green:
                     OnPropertyChanged(nameof(GreenColor));
                     break;
-
             }
+            OnPropertyChanged(nameof(LightImage));
         }
     }
 }

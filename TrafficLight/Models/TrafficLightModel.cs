@@ -23,6 +23,7 @@ namespace TrafficLight.Models
         public Color RedColor => lights[(int)TrafficLight.Red].Color;
         public Color YellowColor => lights[(int)TrafficLight.Yellow].Color;
         public Color GreenColor => lights[(int)TrafficLight.Green].Color;
+        public abstract string LightImage { get; }
         public abstract void ChangeLight();
     }
 }

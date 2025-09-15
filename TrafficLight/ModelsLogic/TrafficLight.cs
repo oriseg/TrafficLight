@@ -4,6 +4,8 @@ namespace TrafficLight.ModelsLogic
 {
     internal class TrafficLight : TrafficLightModel
     {
+        string[] lightImages = ["crysmiley.jpg", "thinksmile.jpg", "happeysmile.jpg", "thinksmile2.jpg"];
+        public override string LightImage => lightImages[(int)state];
         public override void ChangeLight()
         {
             if (state == TrafficLightState.Red)
