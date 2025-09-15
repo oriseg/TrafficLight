@@ -27,6 +27,9 @@ namespace TrafficLight.ViewModel
         //Look for the explanation there.
 
         public string LightImage => trafficLight.LightImage;
+        //Defines a new property that holds the name of the displayed image.
+        //When someone searches for its value, it'll ask the trafficLight created in line 11 to get it from the LightImage, defined
+        //there at line 7.
 
         //Calls the trafficLight.ChangeLight(); method, that knows how to change the lights:
         private void ChangeLight()
@@ -59,6 +62,7 @@ namespace TrafficLight.ViewModel
         //the OnPropertyChanged method (that is in the ObservableObjects.cs class) with the parameter nameof({some-color}), 
         //which basically returns the string "some-color", means for the first scenerio it will called with the string parameter
         //"RedColor", etc.
+        //As metioned before, this method is going to run everytime the Change Light button clicked.
         private void ColorChanged(TrafficLightModel.TrafficLight light)
         {
             switch (light)

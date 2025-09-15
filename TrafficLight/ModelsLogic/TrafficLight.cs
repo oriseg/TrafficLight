@@ -2,8 +2,11 @@
 
 namespace TrafficLight.ModelsLogic
 {
+    //The class inherits form TrafficLightModel, since this class in the model logic.
     internal class TrafficLight : TrafficLightModel
     {
+        //LightImage is a string property that when is called, returns the value that the GetLightImage returns when it is called
+        //on the lightImage OBJECT (that is defined in the TrafficLightModel), with the current state (which is in the TrafficLightModel as well)
         public override string LightImage => lightImage.GetLightImage(state);
 
         public override void ChangeLight()
