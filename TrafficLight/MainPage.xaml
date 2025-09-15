@@ -3,6 +3,7 @@
     Hey there! Thanks for reviewing my code. Here are some basic syntaxes that appear in a lot of places and I learned while
     writing these comments:
     {type of variable}? {name of variable} - usually when calling a method or when defining it, means {name of variable}'s value can be null.
+s    abstract - just like public, static, override, virtual, protected, private, etc, placed before a variable or a method in a class. it means that whatever class inherits from the current class, must write a code that implements the property/variable/method.
 -->
 <ContentPage
     x:Class="TrafficLight.MainPage"

@@ -41,6 +41,7 @@ namespace TrafficLight.ViewModel
         //trafficLight.LightChanged is an event coming from TrafficLightModel.
         //+= OnLightChanged means: “Whenever trafficLight says a light has changed, please call my OnLightChanged method.”
         //This is like handing someone your phone number. It will not call it immidently, but he will when its necessary.
+        //MORE INFO IN TRAFFICLIGHTMODEL
         public MainPageVM()
         {
             trafficLight.LightChanged += OnLightChanged;
