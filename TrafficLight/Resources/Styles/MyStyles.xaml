@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!--kind of like css, you define classes and then assign elements these classes, or you assign a set of css designs to elements by
+    their type, and not by their "Style" property.-->
+    <!--Here, for example, we define a new "class" called MyButtonStyle, and the setters inside it define the style.
+    To assign buttons this class, we need to write this: "Style="{StaticResource MyButtonStyle}"" inside a button tag. -->
     <Style x:Key="MyButtonStyle" TargetType="Button">
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="CornerRadius" Value="25" />
@@ -11,6 +15,8 @@
         <Setter Property="BorderWidth" Value="10" />
         <Setter Property="BorderColor" Value="Cyan" />
     </Style>
+    <!--This, distinguished from the previous one, sets these styles for every element that match the TargetType defined in the Style tag.
+    For example, here, every "Frame" will have a CornerRadius of 55, BackgroundColor of Black, etc--> 
     <Style TargetType="Frame">
         <Setter Property="CornerRadius" Value="55" />
         <Setter Property="BackgroundColor" Value="Black" />

@@ -50,7 +50,7 @@
         <Button
             Grid.Row="3"
             Command="{Binding changeLightCommand}"
-            Text="{x:Static m:Strings.changeLightText}" />
+            Text="{x:Static m:Strings.changeLightText}"/>
         <!--  Grid.row - puts the button in the fourth row.  -->
         <!--  Command - connects the button press to a command in the ViewModel  -->
         <!--  “Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.  -->

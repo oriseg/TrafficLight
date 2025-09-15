@@ -6,7 +6,9 @@ namespace TrafficLight
     {
         public MainPage()
         {
+            //Default by MAUI
             InitializeComponent();
+            //Connecting between the view and the ViewModel!
             BindingContext = new MainPageVM();
         }
     }
