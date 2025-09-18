@@ -23,6 +23,7 @@ namespace TrafficLight.ViewModel
         public Color YellowColor => trafficLight.YellowColor;
         public Color GreenColor => trafficLight.GreenColor;
         public Color AutoBackground => trafficLight.AutoBackground;
+        public string constantChangeLightText => trafficLight.constantChangeLightText;
         //This part is a little tricky.
         //We define new objects type Color that get their values from the property trafficLight (defined in line 11). The trick is that the trafficLight object
         //is type TrafficLight (which needs to be metioned - from the ModelsLogic namespace), and if we look at the class - there is no property for those colors - 
@@ -44,6 +45,7 @@ namespace TrafficLight.ViewModel
         {
             trafficLight.AutoChangeLight();
             OnPropertyChanged(nameof(AutoBackground));
+            OnPropertyChanged(nameof(constantChangeLightText));
         }
 
         //When the app creates a new MainPageVM, this method runs, as a constructor.

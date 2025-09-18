@@ -6,6 +6,7 @@
     static class Strings
     {
         public const string changeLightText = "Change Light";
-        public const string constantChangeLightText = "Auto Change Light";
+        public const string constantStartChangeLightText = "Start Auto Change Light";
+        public const string constantStopChangeLightText = "Stop Auto Change Light";
     }
 }

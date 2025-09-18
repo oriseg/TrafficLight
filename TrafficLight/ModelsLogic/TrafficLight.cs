@@ -9,6 +9,7 @@ namespace TrafficLight.ModelsLogic
         //on the lightImage OBJECT (that is defined in the TrafficLightModel), with the current state (which is in the TrafficLightModel as well)
         public override string LightImage => lightImage.GetLightImage(state);
         public override Color AutoBackground { get; set; } = Color.Parse("#512BD4");
+        public override string constantChangeLightText { get; set; } = Models.Strings.constantStartChangeLightText;
         public bool ToggleAuto = false;
         public override async void AutoChangeLight()
         {
@@ -16,11 +17,13 @@ namespace TrafficLight.ModelsLogic
             {
                 ToggleAuto = true;
                 AutoBackground = Colors.Red;
+                constantChangeLightText = Models.Strings.constantStopChangeLightText;
                 await AutoChangeLightExecuter();
             }
             else
             {
                 ToggleAuto = false;
+                constantChangeLightText = Models.Strings.constantStartChangeLightText;
                 AutoBackground = Color.Parse("#512BD4");
             }
         }

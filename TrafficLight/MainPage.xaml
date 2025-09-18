@@ -76,7 +76,7 @@
             Margin="5"
             BackgroundColor="{Binding AutoBackground}"
             Command="{Binding constantChangeLight}"
-            Text="{x:Static m:Strings.constantChangeLightText}" />
+            Text="{Binding constantChangeLightText}" />
         <Image
             Grid.Row="5"
             Grid.ColumnSpan="3"

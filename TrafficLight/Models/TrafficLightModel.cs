@@ -50,6 +50,7 @@ namespace TrafficLight.Models
         public Color YellowColor => lights[(int)TrafficLight.Yellow].Color;
         public Color GreenColor => lights[(int)TrafficLight.Green].Color;
         public abstract Color AutoBackground { get; set;}
+        public abstract string constantChangeLightText { get; set;}
         public abstract string LightImage { get; }//a string that defines the path/the name of the image we want to currently be displayed. for example: "crysmiley.jpg"
         protected LightImage lightImage = new();//defines a LightImage type variable that we will use to retrieve the LightImage string every time the ChangeButton is clicked
         public abstract void ChangeLight();//abstract ChangeLight, so TrafficLight will have to implement it.
