@@ -10,8 +10,10 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/MyStyles.xaml" />
-                <!-- These lines above define the the connection between the xml and the files that design of the page (like colors,
-                Styles, or something that we create ourselves, like MyStyles.xaml-->
+                <!--
+                    These lines above define the the connection between the xml and the files that design of the page (like colors,
+                    Styles, or something that we create ourselves, like MyStyles.xaml
+                -->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
