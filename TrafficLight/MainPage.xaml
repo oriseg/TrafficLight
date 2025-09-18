@@ -27,7 +27,7 @@
         If you never put the person (MainPageVM instance) in the house, your letters bounce.
     -->
 
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*" RowSpacing="5" >
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto, Auto,*" RowSpacing="5">
         <!--  The page is split into 4 rows. Auto means each row sizes itself to its contents.  -->
         <Frame>
             <!--  Each Frame is just a container (a small border/panel).  -->
@@ -50,19 +50,23 @@
         <Button
             Grid.Row="3"
             Command="{Binding changeLightCommand}"
-            Text="{x:Static m:Strings.changeLightText}"/>
+            Text="{x:Static m:Strings.changeLightText}" />
         <!--  Grid.row - puts the button in the fourth row.  -->
         <!--  Command - connects the button press to a command in the ViewModel  -->
         <!--  “Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.  -->
         <!--  Text - takes a static string called changeLightText from the Strings class in your Models folder and uses it as the button text  -->
-        <Image
+        <Button
             Grid.Row="4"
+            Command="{Binding constantChangeLight}"
+            Text="{x:Static m:Strings.constantChangeLightText}" />
+        <Image
+            Grid.Row="5"
             HorizontalOptions="Center"
             Source="{Binding LightImage}"
             VerticalOptions="Center" />
         <!--  Grid.row - puts the button in the fourth row.  -->
-        <!--  Horizonal and vertical option "center", makes sure the image is in the middle of its container, horizontally and vertically-->
-        <!--  Soure defines the source of the image, inside the resources/images folder-->
+        <!--  Horizonal and vertical option "center", makes sure the image is in the middle of its container, horizontally and vertically  -->
+        <!--  Soure defines the source of the image, inside the resources/images folder  -->
         <!--  “Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.  -->
     </Grid>
 </ContentPage>

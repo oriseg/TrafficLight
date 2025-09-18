@@ -6,5 +6,6 @@
     static class Strings
     {
         public const string changeLightText = "Change Light";
+        public const string constantChangeLightText = "Auto Change Light";
     }
 }

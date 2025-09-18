@@ -52,5 +52,6 @@ namespace TrafficLight.Models
         public abstract string LightImage { get; }//a string that defines the path/the name of the image we want to currently be displayed. for example: "crysmiley.jpg"
         protected LightImage lightImage = new();//defines a LightImage type variable that we will use to retrieve the LightImage string every time the ChangeButton is clicked
         public abstract void ChangeLight();//abstract ChangeLight, so TrafficLight will have to implement it.
+        public abstract void AutoChangeLight();
     }
 }

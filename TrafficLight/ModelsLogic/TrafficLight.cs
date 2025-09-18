@@ -9,6 +9,28 @@ namespace TrafficLight.ModelsLogic
         //on the lightImage OBJECT (that is defined in the TrafficLightModel), with the current state (which is in the TrafficLightModel as well)
         public override string LightImage => lightImage.GetLightImage(state);
 
+        public bool ToggleAuto = false;
+        public override async void AutoChangeLight()
+        {
+            if (!ToggleAuto)
+            {
+                ToggleAuto = true;
+                await AutoChangeLightExecuter();
+            }
+            else
+                ToggleAuto = false;
+        }
+
+        public async Task AutoChangeLightExecuter()
+        {
+            while (ToggleAuto)
+            {
+                ChangeLight();
+                await Task.Delay(1000); // wait 1 sec
+            }
+        }
+
+
         //The main method that handles the light change.
         //Breakdown inside the method.
         public override void ChangeLight()
