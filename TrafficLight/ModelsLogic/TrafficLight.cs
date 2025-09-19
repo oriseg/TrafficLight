@@ -1,4 +1,5 @@
-﻿using TrafficLight.Models;
+﻿using System.Timers;
+using TrafficLight.Models;
 
 namespace TrafficLight.ModelsLogic
 {
@@ -9,6 +10,17 @@ namespace TrafficLight.ModelsLogic
         //on the lightImage OBJECT (that is defined in the TrafficLightModel), with the current state (which is in the TrafficLightModel as well)
         public override string LightImage => lightImage.GetLightImage(state);
         public override string SwitchChangeLightText => switchChangeLightText.GetSwitchChangeLightText(isAutoChange);
+        public TrafficLight()
+        {
+            timer.Elapsed += OnTimerElapsed;
+        }
+
+        private void OnTimerElapsed(object? sender, ElapsedEventArgs e)
+        {
+            ChangeLight();
+        }
+
+
 
         //The main method that handles the light change.
         //Breakdown inside the method.
@@ -65,6 +77,13 @@ namespace TrafficLight.ModelsLogic
         public override void SwitchAutoChange()
         {
             isAutoChange = !isAutoChange;
+            if (isAutoChange)
+            {
+                ChangeLight();
+                timer.Start();
+            }
+            else
+                timer.Stop();
         }
     }
 }

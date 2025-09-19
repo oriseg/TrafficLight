@@ -31,7 +31,7 @@ namespace TrafficLight.Models
 
         //This is the cool part. LightChanged is a kind of an event. Literally, it's a list of a lot of methods that runs everytime
         //we do the Invoke part. Where it happens:
-        //1. In MainPageVM, this is the constructor, it adds the method "OnLightChanged to the event list:
+        //1. In MainPageVM, this is the constructor, it adds the method "OnLightChanged" to the event list:
         //public MainPageVM() { trafficLight.LightChanged += OnLightChanged; }
         //Since "OnLightChanged()" has 2 parameters (object? sender, LightChangedEventArgs e), everytime some trigger wants to call it,
         //it will have to write two parameters of the same types, but where does it happens?
