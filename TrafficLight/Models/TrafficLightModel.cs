@@ -22,6 +22,7 @@ namespace TrafficLight.Models
             Yellow,
             Green
         }
+        protected System.Timers.Timer timer = new(1000);
         protected bool isAutoChange = false;
         protected TrafficLightState state = TrafficLightState.Red;//sets a state variable, holding the current state. obviously, the first one will be red.
         //An array of type Light (that is a class on its own) that contains the lights of a traffic light in every moment. each light
