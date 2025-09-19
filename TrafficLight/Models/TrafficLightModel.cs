@@ -22,6 +22,7 @@ namespace TrafficLight.Models
             Yellow,
             Green
         }
+        protected bool isAutoChange = false;
         protected TrafficLightState state = TrafficLightState.Red;//sets a state variable, holding the current state. obviously, the first one will be red.
         //An array of type Light (that is a class on its own) that contains the lights of a traffic light in every moment. each light
         //in it has 2 properties - color, which is a type of color (a class defined in C#), and isOn - determines if the light is on or off.
@@ -49,11 +50,12 @@ namespace TrafficLight.Models
         public Color RedColor => lights[(int)TrafficLight.Red].Color;
         public Color YellowColor => lights[(int)TrafficLight.Yellow].Color;
         public Color GreenColor => lights[(int)TrafficLight.Green].Color;
-        public abstract Color AutoBackground { get; set;}
-        public abstract string constantChangeLightText { get; set;}
+        //public abstract Color AutoBackground { get; set;}
+        public abstract string SwitchChangeLightText { get; }
         public abstract string LightImage { get; }//a string that defines the path/the name of the image we want to currently be displayed. for example: "crysmiley.jpg"
         protected LightImage lightImage = new();//defines a LightImage type variable that we will use to retrieve the LightImage string every time the ChangeButton is clicked
+        protected SwitchChangeLightText switchChangeLightText = new();
         public abstract void ChangeLight();//abstract ChangeLight, so TrafficLight will have to implement it.
-        public abstract void AutoChangeLight();
+        public abstract void SwitchAutoChange();
     }
 }

@@ -17,13 +17,13 @@ namespace TrafficLight.ViewModel
         //Command(ChangeLight) builds a command object that calls the ChangeLight method when the button is tapped.
         //So, the button in XAML runs trafficLight.ChangeLight() through this property. More correctly, it calls the method in this class, which automatically calls trafficLight.ChangeLight().
 
-        public ICommand constantChangeLight { get => new Command(AutoChangeLightAsync); }
+        public ICommand SwitchAutoChangeCommand { get => new Command(SwitchAutoChange); }
 
         public Color RedColor => trafficLight.RedColor;
         public Color YellowColor => trafficLight.YellowColor;
         public Color GreenColor => trafficLight.GreenColor;
-        public Color AutoBackground => trafficLight.AutoBackground;
-        public string constantChangeLightText => trafficLight.constantChangeLightText;
+        //public Color AutoBackground => trafficLight.AutoBackground;
+        public string SwitchChangeLightText => trafficLight.SwitchChangeLightText;
         //This part is a little tricky.
         //We define new objects type Color that get their values from the property trafficLight (defined in line 11). The trick is that the trafficLight object
         //is type TrafficLight (which needs to be metioned - from the ModelsLogic namespace), and if we look at the class - there is no property for those colors - 
@@ -41,11 +41,10 @@ namespace TrafficLight.ViewModel
             trafficLight.ChangeLight();
         }
 
-        private void AutoChangeLightAsync()
+        private void SwitchAutoChange()
         {
-            trafficLight.AutoChangeLight();
-            OnPropertyChanged(nameof(AutoBackground));
-            OnPropertyChanged(nameof(constantChangeLightText));
+            trafficLight.SwitchAutoChange();
+            OnPropertyChanged(nameof(SwitchChangeLightText));
         }
 
         //When the app creates a new MainPageVM, this method runs, as a constructor.

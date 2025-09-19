@@ -74,9 +74,8 @@
             Grid.Row="4"
             Grid.ColumnSpan="3"
             Margin="5"
-            BackgroundColor="{Binding AutoBackground}"
-            Command="{Binding constantChangeLight}"
-            Text="{Binding constantChangeLightText}" />
+            Command="{Binding SwitchAutoChangeCommand}"
+            Text="{Binding SwitchChangeLightText}" />
         <Image
             Grid.Row="5"
             Grid.ColumnSpan="3"

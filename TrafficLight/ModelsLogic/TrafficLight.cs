@@ -8,35 +8,7 @@ namespace TrafficLight.ModelsLogic
         //LightImage is a string property that when is called, returns the value that the GetLightImage returns when it is called
         //on the lightImage OBJECT (that is defined in the TrafficLightModel), with the current state (which is in the TrafficLightModel as well)
         public override string LightImage => lightImage.GetLightImage(state);
-        public override Color AutoBackground { get; set; } = Color.Parse("#512BD4");
-        public override string constantChangeLightText { get; set; } = Models.Strings.constantStartChangeLightText;
-        public bool ToggleAuto = false;
-        public override async void AutoChangeLight()
-        {
-            if (!ToggleAuto)
-            {
-                ToggleAuto = true;
-                AutoBackground = Colors.Red;
-                constantChangeLightText = Models.Strings.constantStopChangeLightText;
-                await AutoChangeLightExecuter();
-            }
-            else
-            {
-                ToggleAuto = false;
-                constantChangeLightText = Models.Strings.constantStartChangeLightText;
-                AutoBackground = Color.Parse("#512BD4");
-            }
-        }
-
-        public async Task AutoChangeLightExecuter()
-        {
-            while (ToggleAuto)
-            {
-                ChangeLight();
-                await Task.Delay(1000);
-            }
-        }
-
+        public override string SwitchChangeLightText => switchChangeLightText.GetSwitchChangeLightText(isAutoChange);
 
         //The main method that handles the light change.
         //Breakdown inside the method.
@@ -88,6 +60,11 @@ namespace TrafficLight.ModelsLogic
                     if (tl != TrafficLight.Green)
                         LightChanged?.Invoke(this, new LightChangedEventArgs(tl));
             }
+        }
+
+        public override void SwitchAutoChange()
+        {
+            isAutoChange = !isAutoChange;
         }
     }
 }
