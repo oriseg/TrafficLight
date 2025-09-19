@@ -7,6 +7,9 @@
     {
         public const string changeLightText = "Change Light";
         public const string constantStartChangeLightText = "Start Auto Change";
-        public const string constantStopChangeLightText = "Stop Auto Change";
+        public const string constantStopChangeLightText = "Stop Auto Change"; 
+        public const string submitText = "submit"; 
+
+
     }
 }

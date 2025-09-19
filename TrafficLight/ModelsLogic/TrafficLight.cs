@@ -10,6 +10,9 @@ namespace TrafficLight.ModelsLogic
         //on the lightImage OBJECT (that is defined in the TrafficLightModel), with the current state (which is in the TrafficLightModel as well)
         public override string LightImage => lightImage.GetLightImage(state);
         public override string SwitchChangeLightText => switchChangeLightText.GetSwitchChangeLightText(isAutoChange);
+
+        
+
         public TrafficLight()
         {
             timer.Elapsed += OnTimerElapsed;

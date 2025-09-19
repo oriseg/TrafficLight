@@ -22,20 +22,10 @@ namespace TrafficLight.ViewModel
         public Color RedColor => trafficLight.RedColor;
         public Color YellowColor => trafficLight.YellowColor;
         public Color GreenColor => trafficLight.GreenColor;
-        //public Color AutoBackground => trafficLight.AutoBackground;
+   
         public string SwitchChangeLightText => trafficLight.SwitchChangeLightText;
-        //This part is a little tricky.
-        //We define new objects type Color that get their values from the property trafficLight (defined in line 11). The trick is that the trafficLight object
-        //is type TrafficLight (which needs to be metioned - from the ModelsLogic namespace), and if we look at the class - there is no property for those colors - 
-        //because it's in the base class. ModelsLogic.TrafficLight inherits from Models.TrafficLightModel.cs, where the colors are defined.
-        //Look for the explanation there.
-
         public string LightImage => trafficLight.LightImage;
-        //Defines a new property that holds the name of the displayed image.
-        //When someone searches for its value, it'll ask the trafficLight created in line 11 to get it from the LightImage, defined
-        //there at line 7.
-
-        //Calls the trafficLight.ChangeLight(); method, that knows how to change the lights:
+        public string CurrentTimerChange => trafficLight.TimerChange;
         private void ChangeLight()
         {
             trafficLight.ChangeLight();
