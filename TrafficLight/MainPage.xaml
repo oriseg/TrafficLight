@@ -1,11 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--
-    Hey there! Thanks for reviewing my code. Here are some basic syntaxes that appear in a lot of places and I learned while
-    writing these comments:
-    {type of variable}? {name of variable} - usually when calling a method or when defining it, means {name of variable}'s value can be null.
-    abstract - just like public, static, override, virtual, protected, private, etc, placed before a variable or a method in a class. it means that whatever class inherits from the current class, must write a code that implements the property/variable/method.
-    protected - just like public, static, override, virtual, abstract, private, etc, placed before a variable or a method in a class. it means that whatever property/variable/method that override this (because its class are inherits), will be private.
--->
+
 <ContentPage
     x:Class="TrafficLight.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -14,51 +8,31 @@
     xmlns:vm="clr-namespace:TrafficLight.ViewModel"
     x:DataType="vm:MainPageVM"
     BackgroundColor="LightBlue">
-    <!--  "x:Class="TrafficLight.MainPage"" - Creates the other half of MainPage.xaml.cs. Without this, the half the compiler auto-creates and the MainPage.xaml.cs won't match, and it'll create errors.  -->
-    <!--"xmlns="http://schemas.microsoft.com/dotnet/2021/maui"" - Lets the xml understand that when I use xml tags like <Grid>, I use MAUI controls. That long URL is just an identifier — it’s not fetched from the internet.-->
-    <!--  "xmlns:x="http://schemas.microsoft.com/winf x/2009/xaml"" - Gives the project language namespaces, allowing me to use x: helpers like x:Class, x:Name, x:Static, x:DataType, etc.  -->
-    <!--  "xmlns:m="clr-namespace:TrafficLight.Models"" and also "xmlns:vm="clr-namespace:TrafficLight.ViewModel"" - link the xml and the other two namespaces for model and viewmodel. xmlns:m="clr-namespace:TrafficLight.Models" means “when I type m:Something in this XAML, look for Something inside the TrafficLight.Models namespace". xmlns:vm="clr-namespace:TrafficLight.ViewModel" does the same but for your ViewModel classes.  -->
-    <!--
-        "x:DataType="vm:MainPageVM"" - Personally, didn't understand it perfect. Here's what I know:
-        Only a hint for compile-time. Helps you write correct bindings and gives auto-complete:
-        Think of the binding system as a post office:
-        x:DataType is you telling the post office, “letters in this box will be addressed to a person of type MainPageVM.” That way, they can check you spelled the name correctly.
-        BindingContext is actually putting that person in the house so the letters have someone to reach.
-        {Binding RedColor} is the letter addressed to “RedColor” inside that person.
-        If you never put the person (MainPageVM instance) in the house, your letters bounce.
-    -->
-
     <Grid
         ColumnDefinitions="*,*,*"
         RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*"
         RowSpacing="5">
-        <!--  The page is split into 4 rows. Auto means each row sizes itself to its contents.  -->
+
         <Frame
             Grid.Row="0"
             Grid.Column="1"
             Margin="5">
-            <!--  Each Frame is just a container (a small border/panel).  -->
             <BoxView BackgroundColor="{Binding RedColor}" />
-            <!--  Each BoxView is the actual colored rectangle.  -->
-            <!--  “Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.  -->
+ 
         </Frame>
         <Frame
             Grid.Row="1"
             Grid.Column="1"
             Margin="5">
-            <!--  Each Frame is just a container (a small border/panel).  -->
             <BoxView BackgroundColor="{Binding YellowColor}" />
-            <!--  Each BoxView is the actual colored rectangle.  -->
-            <!--  “Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.  -->
+       
         </Frame>
         <Frame
             Grid.Row="2"
             Grid.Column="1"
             Margin="5">
-            <!--  Each Frame is just a container (a small border/panel).  -->
             <BoxView BackgroundColor="{Binding GreenColor}" />
-            <!--  Each BoxView is the actual colored rectangle.  -->
-            <!--  “Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.  -->
+      
         </Frame>
         <Button
             Grid.Row="3"
@@ -66,10 +40,7 @@
             Margin="5"
             Command="{Binding changeLightCommand}"
             Text="{x:Static m:Strings.changeLightText}" />
-        <!--  Grid.row - puts the button in the fourth row.  -->
-        <!--  Command - connects the button press to a command in the ViewModel  -->
-        <!--  “Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.  -->
-        <!--  Text - takes a static string called changeLightText from the Strings class in your Models folder and uses it as the button text  -->
+
         <Button
             Grid.Row="4"
             Grid.ColumnSpan="3"
@@ -80,22 +51,22 @@
             Grid.Row="5" 
             Grid.ColumnSpan="2" 
             Margin="5" 
-            Text="{Binding CurrentTimerChange}"
+            Keyboard="Numeric" 
+            HorizontalTextAlignment="Center" 
+            FontSize="30" 
+            Text="{Binding CurrentSecondsChange}" 
             />
-
         <Button
             Grid.Row="5"
             Grid.Column="3"
-            Margin="5"
-            Text="{x:Static m:Strings.submitText}" />
+            Margin="5"    
+            Command="{Binding SumbitTimeCommand}"
+            Text="{x:Static m:Strings.submitText}"  />
 
         <Image
             Grid.Row="6"
             Grid.ColumnSpan="3"
             Source="{Binding LightImage}" />
-        <!--  Grid.row - puts the button in the fourth row.  -->
-        <!--  Horizonal and vertical option "center", makes sure the image is in the middle of its container, horizontally and vertically  -->
-        <!--  Soure defines the source of the image, inside the resources/images folder  -->
-        <!--  “Binding” is just a tunnel between something on the screen (like the Button) and a property in your view model.  -->
+     
     </Grid>
 </ContentPage>
